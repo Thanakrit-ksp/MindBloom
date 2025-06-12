@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindBloom - ระบบแบบเต็ม</title>
+  <link href="https://fonts.googleapis.com/css2?family=Maitree&family=Noto+Sans+Thai&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Maitree', 'Noto Sans Thai', serif;
+      background-color: #e3ffe6;
+      min-height: 100vh;
+    }
+    /* -- Login & Register Card -- */
+    .login-card {
+      max-width: 900px;
+      margin: 3rem auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      min-height: 500px;
+    }
+    .gradient-custom-2 {
+      background: linear-gradient(135deg, #24eed3 0%, #36d846 33%, #50ee24 66%, #89f134 100%);
+      color: white;
+      padding: 3rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .gradient-custom-2 h3 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .gradient-custom-2 p {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+    .form-container {
+      flex: 1;
+      padding: 3rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .form-control {
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      border: 1.8px solid #ddd;
+      transition: border-color 0.3s;
+    }
+    .form-control:focus {
+      border-color: #36d846;
+      box-shadow: none;
+    }
+    .btn-primary {
+      background-color: #36d846;
+      border-color: #36d846;
+      font-weight: 600;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #2cb43e;
+      border-color: #2cb43e;
+    }
+    .text-center img {
+      max-width: 110px;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .text-center a {
+      color: #36d846;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .text-center a:hover {
+      text-decoration: underline;
+    }
+    /* --- Page 10 --- */
+    #page10 {
+      min-height: 100vh;
+      background-color: #e3ffe6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+      text-align: center;
+      user-select: none;
+    }
+    #page10 img {
+      max-width: 110px;
+    }
+    #page10 h1 {
+      font-weight: 700;
+      font-size: 3.8rem;
+      letter-spacing: 10px;
+      margin: 0;
+      color: #222;
+    }
+    #page10 button {
+      background-color: #36d846;
+      border: none;
+      font-size: 1.3rem;
+      padding: 14px 50px;
+      border-radius: 50px;
+      box-shadow: 0 6px 10px rgb(54 216 70 / 0.4);
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #page10 button:hover {
+      background-color: #2cb43e;
+    }
+    /* --- Page 11 --- */
+    #page11 {
+      min-height: 100vh;
+      background-color: #fffbe6;
+      padding: 4rem 1rem;
+      position: relative;
+      user-select: none;
+    }
+    .assessment-watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      background: url('https://i.ibb.co/bMnR3VNv/LINE-ALBUM-250603-1-1.jpg') no-repeat center center;
+      background-size: contain;
+      opacity: 0.08;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .assessment-question {
+      max-width: 600px;
+      margin: 0 auto 2.5rem auto;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #222;
+    }
+    .scale-labels {
+      max-width: 600px;
+      margin: 0 auto 10px auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 600;
+    }
+    .radio-group-custom {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+    .radio-group-custom label {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.85rem;
+      user-select: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .radio-group-custom input[type="radio"] {
+      display: none;
+    }
+    .custom-radio-scale {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2.5px solid #888;
+      background: #fff;
+      margin-bottom: 6px;
+      transition: all 0.3s ease;
+    }
+    .radio-group-custom input[type="radio"]:checked + .custom-radio-scale {
+      background-color: #36d846;
+      border-color: #36d846;
+      box-shadow: 0 0 8px #36d846;
+    }
+    .btn-lg {
+      font-weight: 700;
+      border-radius: 50px;
+      padding: 12px 40px;
+      background-color: #36d846;
+      border: none;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 6px 10px rgb(54 216 70 / 0.4);
+      transition: background-color 0.3s ease;
+      display: block;
+      margin: 2rem auto 0 auto;
+      user-select: none;
+      font-size: 1.2rem;
+    }
+    .btn-lg:hover {
+      background-color: #2cb43e;
+    }
+    /* Hide all pages initially */
+    #pageLogin, #pageRegister, #page10, #page11 {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Page -->
+  <div id="pageLogin" class="login-card">
+    <div class="gradient-custom-2">
+      <h3>ยินดีต้อนรับ</h3>
+      <p>เข้าสู่ระบบด้วยชื่อผู้ใช้และรหัสผ่านของคุณ</p>
+    </div>
+    <div class="form-container">
+      <div class="text-center">
+        <img src="https://i.ibb.co/bMnR3VNv/LINE-ALBUM-250603-1-1.jpg" alt="Logo" />
+      </div>
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="loginUsername" class="form-label">ชื่อผู้ใช้ (นามสมมติ)</label>
+          <input type="text" class="form-control" id="loginUsername" placeholder="กรอกชื่อผู้ใช้" required />
+        </div>
+        <div class="mb-4">
+          <label for="loginPassword" class="form-label">รหัสผ่าน</label>
+          <input type="password" class="form-control" id="loginPassword" placeholder="กรอกรหัสผ่าน" required />
+        </div>
+        <button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
+      </form>
+      <div class="text-center mt-3">
+        <p>ยังไม่มีบัญชี? <a href="#" id="goToRegister">สมัครสมาชิก</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Page -->
+  <div id="pageRegister" class="login-card">
+    <div class="gradient-custom-2">
+      <h3>สมัครสมาชิก</h3>
+      <p>สร้างบัญชีใหม่เพื่อเริ่มต้นใช้งาน</p>
+    </div>
+    <div class="form-container">
+      <div class="text-center">
+        <img src="https://i.ibb.co/bMnR3VNv/LINE-ALBUM-250603-1-1.jpg" alt="Logo" />
+      </div>
+      <form id="registerForm">
+        <div class="mb-3">
+          <label for="registerUsername" class="form-label">ชื่อผู้ใช้ (นามสมมติ)</label>
+          <input type="text" class="form-control" id="registerUsername" placeholder="กรอกชื่อผู้ใช้" required />
+        </div>
+        <div class="mb-3">
+          <label for="registerPhone" class="form-label">เบอร์โทรศัพท์</label>
+          <input type="tel" class="form-control" id="registerPhone" placeholder="กรอกเบอร์โทรศัพท์" required />
+        </div>
+        <div class="mb-4">
+          <label for="registerPassword" class="form-label">รหัสผ่าน</label>
+          <input type="password" class="form-control" id="registerPassword" placeholder="ตั้งรหัสผ่าน" required />
+        </div>
+        <button type="submit" class="btn btn-primary">สมัครสมาชิก</button>
+      </form>
+      <div class="text-center mt-3">
+        <p>มีบัญชีแล้ว? <a href="#" id="goToLogin">เข้าสู่ระบบ</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 10: Pre-assessment -->
+  <div id="page10" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #e3ffe6;">
+    <!-- พื้นหลังรูป png -->
+    <div style="
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 350px; height: 350px;
+      background: url('https://i.ibb.co/bMnR3VNv/LINE-ALBUM-250603-1-1.png') no-repeat center center;
+      background-size: contain;
+      opacity: 0.13;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+    "></div>
+    <div style="position: relative; z-index: 1;">
+      <h1 style="letter-spacing: 10px; font-weight: 700; color: #222;">M I N D</h1>
+      <h1 style="letter-spacing: 10px; font-weight: 700; color: #222;">B L O O M</h1>
+      <button id="startAssessmentBtn" class="btn btn-success btn-lg px-4 py-2 rounded-pill shadow mt-5">
+        เริ่มทำแบบประเมิน
+      </button>
+    </div>
+  </div>
+
+  <!-- Page 11: Assessment Questions (รวม 1-5 ในหน้าเดียว) -->
+  <div id="page11" style="display:none; min-height:100vh; background-color:#fffbe6; padding:4rem 1rem; position:relative; user-select:none;">
+    <div class="assessment-watermark"></div>
+    <form id="assessmentForm" style="max-width:600px; margin:0 auto; background:rgba(255,255,255,0.95); border-radius:18px; box-shadow:0 4px 16px #0001; padding:2rem;">
+      <div class="assessment-question mb-4">
+        <label class="form-label">1. คุณรู้สึกเครียดหรือวิตกกังวลบ่อยแค่ไหน?</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q1" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q1" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q1" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q1" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q1" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">2. คุณรู้สึกหมดแรง ไม่มีแรงทำอะไรหรือไม่?</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q2" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q2" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q2" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q2" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q2" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">3. คุณนอนหลับได้ดีหรือไม่ในช่วงที่ผ่านมา?</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q3" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q3" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q3" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q3" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q3" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">4. คุณรู้สึกไม่มีความสุขกับชีวิตบ่อยแค่ไหน?</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q4" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q4" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q4" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q4" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q4" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">5. คุณรู้สึกหงุดหงิดหรือโมโหง่ายหรือไม่?</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q5" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q5" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q5" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q5" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q5" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg">ส่งคำตอบ</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    // ------------------------
+    // ตัวแปรเก็บข้อมูลแบบประเมิน ตัวอย่างคำถาม
+    // ------------------------
+    const questions = [
+      "1. คุณรู้สึกเครียดหรือวิตกกังวลบ่อยแค่ไหน?",
+      "2. คุณรู้สึกหมดแรง ไม่มีแรงทำอะไรหรือไม่?",
+      "3. คุณนอนหลับได้ดีหรือไม่ในช่วงที่ผ่านมา?",
+      "4. คุณรู้สึกไม่มีความสุขกับชีวิตบ่อยแค่ไหน?",
+      "5. คุณรู้สึกหงุดหงิดหรือโมโหง่ายหรือไม่?",
+    ];
+
+    let currentQuestionIndex = 0;
+    let answers = [];
+
+    // ------------------------
+    // แสดงหรือซ่อนหน้า
+    // ------------------------
+    function showPage(pageId) {
+      const pages = ['pageLogin', 'pageRegister', 'page10', 'page11'];
+      pages.forEach(id => {
+        document.getElementById(id).style.display = (id === pageId) ? 'flex' : 'none';
+      });
+      // page11 ต้องเป็น block เพราะ flex กับ column ทำให้องค์ประกอบผิดเพี้ยน
+      if (pageId === 'page11') {
+        document.getElementById(pageId).style.display = 'block';
+      }
+    }
+
+    // ------------------------
+    // เริ่มต้นแสดงหน้า Login
+    // ------------------------
+    showPage('pageLogin');
+
+    // ------------------------
+    // ลิงก์สลับหน้า Register <-> Login
+    // ------------------------
+    document.getElementById('goToRegister').addEventListener('click', e => {
+      e.preventDefault();
+      showPage('pageRegister');
+    });
+    document.getElementById('goToLogin').addEventListener('click', e => {
+      e.preventDefault();
+      showPage('pageLogin');
+    });
+
+    // ------------------------
+    // ฟังก์ชันตรวจสอบ Login แบบง่าย (จำลอง)
+    // ------------------------
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      if (username === "" || password === "") {
+        Swal.fire('ผิดพลาด', 'กรุณากรอกชื่อผู้ใช้และรหัสผ่านให้ครบ', 'error');
+        return;
+      }
+
+      // สมมติ login ผ่าน
+      Swal.fire({
+        icon: 'success',
+        title: 'เข้าสู่ระบบสำเร็จ',
+        showConfirmButton: false,
+        timer: 1200
+      }).then(() => {
+        // ไปหน้า 10 (pre-assessment)
+        showPage('page10');
+      });
+    });
+
+    // ------------------------
+    // ฟังก์ชัน Register แบบง่าย (จำลอง)
+    // ------------------------
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('registerUsername').value.trim();
+      const phone = document.getElementById('registerPhone').value.trim();
+      const password = document.getElementById('registerPassword').value.trim();
+
+      if (username === "" || phone === "" || password === "") {
+        Swal.fire('ผิดพลาด', 'กรุณากรอกข้อมูลให้ครบถ้วน', 'error');
+        return;
+      }
+
+      // สมมติลงทะเบียนสำเร็จ
+      Swal.fire({
+        icon: 'success',
+        title: 'สมัครสมาชิกสำเร็จ',
+        showConfirmButton: false,
+        timer: 1200
+      }).then(() => {
+        showPage('pageLogin');
+      });
+    });
+
+    // ------------------------
+    // ปุ่มเริ่มทำแบบประเมิน
+    // ------------------------
+    document.getElementById('startAssessmentBtn').addEventListener('click', () => {
+      showPage('page11');
+    });
+
+    // ส่งคำตอบแบบประเมิน 5 ข้อ
+    document.getElementById('assessmentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const answers = [];
+      let valid = true;
+      for (let i = 1; i <= 5; i++) {
+        const val = document.querySelector('input[name="q'+i+'"]:checked');
+        if (!val) {
+          valid = false;
+          break;
+        }
+        answers.push(parseInt(val.value));
+      }
+      if (!valid) {
+        Swal.fire('กรุณาตอบคำถามให้ครบทุกข้อ', '', 'warning');
+        return;
+      }
+      Swal.fire({
+        icon: 'success',
+        title: 'ทำแบบประเมินเสร็จสิ้น',
+        text: 'ขอบคุณที่ทำแบบประเมิน',
+        confirmButtonText: 'ปิด'
+      });
+      // สามารถนำ answers ไปใช้งานต่อได้
+      showPage('page10');
+    });
+
+  </script>
+</body>
+</html>

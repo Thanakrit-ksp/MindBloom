@@ -1,0 +1,101 @@
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+ $(document).ready(function () {
+  $('#pageRegister').hide();
+
+  window.openPageRegister = function () {
+    $('#pagelogin').hide();
+    $('#pageRegister').show();
+  }
+
+  window.openPagelogin = function () {
+    $('#pagelogin').show();
+    $('#pageRegister').hide();
+  }
+
+  $('#registerForm').submit(function (event) {
+    event.preventDefault();
+    const username = $('#registerUsername').val().trim();
+    const phone = $('#registerPhone').val().trim();
+    const password = $('#registerPassword').val().trim();
+
+    if (!username || !phone || !password) {
+      Swal.fire('ผิดพลาด', 'กรุณากรอกข้อมูลให้ครบถ้วน', 'warning');
+      return;
+    }
+
+    if (!/^\d{9,}$/.test(phone)) {
+      Swal.fire('ผิดพลาด', 'เบอร์โทรศัพท์ต้องเป็นตัวเลขอย่างน้อย 9 หลัก', 'error');
+      return;
+    }
+
+    Swal.fire({
+      title: 'กำลังลงทะเบียน...',
+      allowOutsideClick: false,
+      didOpen: () => Swal.showLoading()
+    });
+
+    setTimeout(() => {
+      Swal.fire('ลงทะเบียนสำเร็จ', '', 'success');
+      openPagelogin();
+    }, 1500);
+  });
+
+  $('#loginForm').submit(function (event) {
+    event.preventDefault();
+    const username = $('#inputusername').val().trim();
+    const password = $('#inputpassword').val().trim();
+
+    if (!username || !password) {
+      Swal.fire('ผิดพลาด', 'กรุณากรอกชื่อผู้ใช้และรหัสผ่าน', 'warning');
+      return;
+    }
+
+    // จำลองการ login สำเร็จ
+    Swal.fire({
+      title: 'กำลังเข้าสู่ระบบ...',
+      allowOutsideClick: false,
+      didOpen: () => Swal.showLoading()
+    });
+
+    setTimeout(() => {
+      window.location.href = "page10.html";
+    }, 1500);
+  });
+});
+function validateLoginForm() {
+  const username = document.getElementById("inputusername").value.trim();
+  const password = document.getElementById("inputpassword").value.trim();
+
+  if (!username || !password) {
+    alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่านให้ครบ");
+    return false;
+  }
+
+  // ถ้า login สำเร็จ
+  goToPage10();
+  return false; // ป้องกัน form รีเฟรช
+}
+function goToPage10() {
+  window.location.href = "page10.html";
+}
+</script>
+<script>
+  function hideAllPages() {
+    $("#pagelogin, #pageRegister, #page10, #page11, #page12").hide();
+    $(".gradient-custom-2").hide(); // ซ่อน gradient background
+    
+  }
+
+  function goToPage10() {
+    hideAllPages();
+    $("#page10").show();
+  }
+  function goToPage11() {
+  hideAllPages();
+  $("#page11").removeClass("d-none").show();
+}
+
+</script>
