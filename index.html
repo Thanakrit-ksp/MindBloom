@@ -253,18 +253,37 @@
       openPagelogin();
     });
 
-    // Login
+    // Login: บันทึก username ไว้ใน localStorage
     $('#loginForm').submit(function (event) {
       event.preventDefault();
-      Swal.fire({
-        title: 'กำลังเข้าสู่ระบบ...',
-        allowOutsideClick: false,
-        didOpen: () => Swal.showLoading(),
-      });
+      const username = $('#loginUsername').val().trim();
+      const password = $('#loginPassword').val().trim();
+      if (!username || !password) {
+        Swal.fire('กรุณากรอกข้อมูลให้ครบถ้วน', '', 'warning');
+        return;
+      }
+      localStorage.setItem('mindbloomUser', username);
+      Swal.fire({ title: 'กำลังเข้าสู่ระบบ...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
       setTimeout(() => {
         $('#mainContainer').hide();
         showPage('page10');
-      }, 1200);
+      }, 1000);
+    });
+
+    // ถ้ามีผู้ใช้ login แล้ว ไปหน้า 10 ทันที
+    $(document).ready(() => {
+      const savedUser = localStorage.getItem('mindbloomUser');
+      if (savedUser) {
+        $('#mainContainer').hide();
+        showPage('page10');
+      }
+    });
+
+    // ปุ่มออกจากระบบ (วางไว้ใน #page10)
+    $('#logoutBtn').click(() => {
+      localStorage.removeItem('mindbloomUser');
+      $('#mainContainer').show();
+      showPage('pageLogin');
     });
 
     // ไป assessment
