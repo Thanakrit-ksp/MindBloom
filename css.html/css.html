@@ -1,57 +1,84 @@
 <style>
-  * {
-  font-family: 'Maitree', 'Noto Sans Thai', serif;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: #e3ffe6;
-}
-
-.login-card {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-}
-
-.gradient-custom-2 {
-  background: linear-gradient(to right, #22def7, #06f0c1, #14f78d, #10d817);
-  color: rgb(0, 0, 0);
-}
-
-.form-label {
-  font-weight: 500;
-}
-
-.hidden {
-  display: none;
-}
-
-.login-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 4px;
-}
-
-@media (min-width: 768px) {
-  .gradient-form {
-    height: 100vh !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .gradient-custom-2 {
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-  }
-}
-  .login-card {
-    max-width: 600px;
-  }
-  .login-card img {
-    width: 100px;
-    margin-bottom: 20px;
-  }
-</style>
+    body {
+      font-family: 'Maitree', 'Noto Sans Thai', serif;
+      background-color: #e3ffe6;
+      min-height: 100vh;
+    }
+    .login-card {
+      max-width: 900px;
+      margin: 3rem auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      min-height: 500px;
+    }
+    .gradient-custom-2 {
+      background: linear-gradient(135deg, #24eed3 0%, #36d846 33%, #50ee24 66%, #89f134 100%);
+      color: white;
+      padding: 3rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-container {
+      flex: 1;
+      padding: 3rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-label { font-weight: 600; margin-bottom: 0.5rem; }
+    .form-control {
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      border: 1.8px solid #ddd;
+      transition: border-color 0.3s;
+    }
+    .form-control:focus { border-color: #36d846; box-shadow: none; }
+    .btn-primary {
+      background-color: #36d846;
+      border-color: #36d846;
+      font-weight: 600;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover { background-color: #2cb43e; border-color: #2cb43e; }
+    .text-center img { max-width: 110px; margin-bottom: 1rem; user-select: none; }
+    .text-center a { color: #36d846; font-weight: 600; text-decoration: none; }
+    .text-center a:hover { text-decoration: underline; }
+    #pageLogin, #pageRegister, #page10, #page11, #page12, #page13, #page14 { display: none; }
+    /* Assessment & Monster */
+    .assessment-question { margin-bottom: 2.5rem; }
+    .scale-labels { display: flex; justify-content: space-between; max-width: 500px; margin: 5px auto 10px auto; font-size: 0.9rem; color: #555; }
+    .radio-group-custom { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 10px; }
+    .radio-group-custom label { cursor: pointer; text-align: center; font-size: 0.85rem; display: flex; flex-direction: column; align-items: center; }
+    .radio-group-custom input[type="radio"] { display: none; }
+    .custom-radio-scale { display: inline-block; border-radius: 50%; border: 2px solid #888; background: #fff; margin-bottom: 4px; transition: all 0.3s; width: 36px; height: 36px; }
+    .radio-group-custom input[type="radio"]:checked + .custom-radio-scale { background-color: #36d846; border-color: #36d846; }
+    .radio-label { font-size: 0.8rem; margin-top: 2px; color: #333; }
+    .mission-item {
+      background:#fff; padding:1rem 1.5rem; margin-bottom:1rem; border-radius:14px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05); font-size:1.1rem; position:relative;
+    }
+    .monster-hit { animation: shake 0.4s, redFlash 0.4s; }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-10px); }
+      40% { transform: translateX(10px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
+    @keyframes redFlash {
+      0% { filter: brightness(1) hue-rotate(0deg); }
+      50% { filter: brightness(1.5) hue-rotate(-50deg); }
+      100% { filter: brightness(1) hue-rotate(0deg); }
+    }
+  </style>
