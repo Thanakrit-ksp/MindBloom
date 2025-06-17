@@ -220,8 +220,49 @@
       background-color: #2cb43e;
     }
     /* Hide all pages initially */
-    #pageLogin, #pageRegister, #page10, #page11 {
+    #pageLogin, #pageRegister, #page10, #page11, #page12, #page13, #page14 {
       display: none;
+    }
+    .mission-item {
+      background:#fff; 
+      padding:1rem 1.5rem; 
+      margin-bottom:1rem; 
+      border-radius:14px; 
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      font-size:1.1rem;
+      position:relative;
+    }
+    .monster-hit {
+      animation: shake 0.4s, redFlash 0.4s;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-10px); }
+      40% { transform: translateX(10px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
+    @keyframes redFlash {
+      0% { filter: brightness(1) hue-rotate(0deg); }
+      50% { filter: brightness(1.5) hue-rotate(-50deg); }
+      100% { filter: brightness(1) hue-rotate(0deg); }
+    }
+    /* Mascot เพื่อนให้กำลังใจ (เอารูปออก เหลือแต่กล่องข้อความ) */
+    #mascotSpeech {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      background: #fff;
+      padding: 14px 22px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: #2c662d;
+      animation: mascotPop 0.4s;
     }
   </style>
 </head>
@@ -383,6 +424,110 @@
     </form>
   </div>
 
+  <!-- Page 12: ผลการประเมิน (บ้านทานตะวัน) -->
+  <div id="page12" style="display:none; background:#e3ffe6; min-height:100vh; padding:3rem 1rem; text-align:center; font-family:'Maitree','Noto Sans Thai',sans-serif;">
+    <div style="max-width:700px; margin:0 auto;">
+      <h2 style="font-weight:700; font-size:2.2rem; margin-bottom:1.5rem; color:#333;">ผลการประเมิน</h2>
+      <p style="font-size:1.3rem; margin-bottom:2rem;">คุณจัดอยู่ในบ้าน <strong>“ทานตะวัน”</strong></p>
+      
+      <div style="background:#feffff; padding:2rem; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+        <p style="font-size:1.1rem; font-weight:600; margin-bottom:0.5rem;">ระดับความรุนแรงของปัญหาด้านอารมณ์ (ทานตะวัน)</p>
+        <div style="width:100%; background:#e3ffe6; height:30px; border-radius:50px; overflow:hidden; margin:0 auto 1rem;">
+          <div id="sunflowerBar" style="height:100%; width:0%; background:linear-gradient(to right, orange, red); transition:width 1s;"></div>
+        </div>
+        <p id="sunflowerPercent" style="font-size:1rem; color:#444;"></p>
+      </div>
+
+      <button id="toNextFrom12" class="btn btn-success mt-5 px-5 py-2 rounded-pill" style="font-size:1.2rem;">ถัดไป</button>
+    </div>
+  </div>
+
+  <!-- Page 13: รายละเอียดกลุ่มทานตะวัน -->
+  <div id="page13" style="display:none; background:#fffdf3; min-height:100vh; padding:3rem 1rem; font-family:'Maitree','Noto Sans Thai',sans-serif;">
+    <div style="max-width:750px; margin:0 auto; text-align:center;">
+      <h2 style="font-weight:700; font-size:2.2rem; margin-bottom:1rem; color:#333;">คุณอยู่ในบ้าน “ทานตะวัน”</h2>
+      <p style="font-size:1.2rem; text-align:left; line-height:1.7; background:#fff8db; padding:2rem; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+        คุณอาจพบเจอกับอาการ:<br>
+        • รู้สึกซึมเศร้า หดหู่ หรือสิ้นหวัง<br>
+        • ขาดความสนใจหรือความสุขในกิจกรรมที่เคยชอบ<br>
+        • น้ำหนักเปลี่ยนแปลงผิดปกติ<br>
+        • นอนไม่หลับหรือนอนมากเกินไป<br>
+        • รู้สึกอ่อนเพลีย ไม่มีพลัง<br>
+        • รู้สึกผิด โทษตัวเอง หรือไร้ค่า<br>
+        • มีสมาธิลดลง<br>
+        • กระวนกระวาย เคลื่อนไหวช้า หรือกระสับกระส่าย<br>
+        • มีความคิดอยากให้ตัวเองหายไปหรือยากทำร้ายตัวเอง<br>
+      </p>
+      <img src="https://i.ibb.co/F4LT2sqL/Chat-GPT-Image-Jun-13-2025-12-13-29-PM-2.png" alt="บ้านทานตะวัน" style="margin-top:2rem; max-width:100%; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
+      
+      <button id="toMissionBtn" class="btn btn-success mt-5 px-5 py-2 rounded-pill" style="font-size:1.2rem;">ไปยังภารกิจ</button>
+    </div>
+  </div>
+
+  <!-- Page 14: ภารกิจพิชิตปีศาจ -->
+  <div id="page14" style="display:none; background:#f0fff0; min-height:100vh; padding:2rem 1rem; font-family:'Maitree','Noto Sans Thai',sans-serif;">
+    <div style="max-width:820px; margin:0 auto; text-align:center;">
+      <h2 style="font-weight:700; font-size:2rem; color:#2c662d; margin-bottom:2rem;">ภารกิจพิชิตปีศาจ</h2>
+      <!-- กระดานรวมปีศาจ+แถบพลังชีวิต+ภารกิจ -->
+      <div class="mission-board" style="background:#fff; border-radius:24px; box-shadow:0 6px 24px #0001; padding:2.5rem 1.5rem 2rem 1.5rem; max-width:540px; margin:0 auto;">
+        <!-- แถบพลังชีวิต -->
+        <div class="monster-hp-bar mb-4" style="margin-bottom:2rem;">
+          <div id="hpBar" class="hp-fill"></div>
+        </div>
+        <!-- ปีศาจ -->
+        <div style="margin:1.5rem 0 2rem 0; position:relative;">
+          <img id="monsterImg" src="https://img5.pic.in.th/file/secure-sv1/ChatGPT-Image-Jun-14-2025-06_53_53-AM.png" alt="Monster" style="width:180px; height:180px; max-width:90%; object-fit:contain; border-radius:18px; background:#fff; box-shadow:0 4px 16px #0002; transition:transform 0.3s, filter 0.3s;">
+          <div id="hpText" style="margin-top:1rem; font-weight:600; font-size:1.1rem;">พลังชีวิตปีศาจ: 100%</div>
+        </div>
+        <!-- ภารกิจ -->
+        <ul id="missionList" style="list-style:none; padding:0; margin:0 auto; max-width:420px;">
+          <li class="mission-item">
+            <span>ฝึกหายใจแบบ 4-7-8 ก่อนนอน</span>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
+              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
+            </button>
+          </li>
+          <li class="mission-item">
+            <span>เขียนไดอารี่อารมณ์ประจำวัน</span>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
+              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
+            </button>
+          </li>
+          <li class="mission-item">
+            <span>ออกไปรับแสงแดดยามเช้า 15 นาที</span>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
+              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
+            </button>
+          </li>
+          <li class="mission-item">
+            <span>วาดภาพหรือระบายสีเพื่อสื่ออารมณ์</span>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
+              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
+            </button>
+          </li>
+          <li class="mission-item">
+            <span>พูดคุยกับเพื่อนหรือครอบครัว</span>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
+              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
+            </button>
+          </li>
+        </ul>
+        <div id="missionComplete" class="mt-4" style="display:none;">
+          <h4 class="text-success">🎉 คุณพิชิตปีศาจได้แล้ว!</h4>
+        </div>
+      </div>
+    </div>
+    <!-- เสียงเอฟเฟกต์ -->
+    <audio id="fxHit" src="https://cdn.pixabay.com/audio/2022/03/15/audio_6c69fb5402.mp3"></audio>
+    <audio id="fxWin" src="https://cdn.pixabay.com/audio/2022/03/15/audio_98fce7e3a0.mp3"></audio>
+    <audio id="fxMonsterCry" src="https://cdn.pixabay.com/audio/2022/08/09/audio_62ddbc3f66.mp3"></audio>
+  </div>
+
+  <!-- Mascot เพื่อนให้กำลังใจ (เอารูปออก เหลือแต่กล่องข้อความ) -->
+  <div id="mascotSpeech" style="display:none; position:fixed; bottom:24px; right:24px; z-index:999; background:#fff; padding:14px 22px; border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.18); font-size:1.08rem; font-weight:500; color:#2c662d; animation: mascotPop 0.4s;">
+    <!-- ข้อความกำลังใจจะมาแสดงตรงนี้ -->
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     // ------------------------
@@ -403,14 +548,23 @@
     // แสดงหรือซ่อนหน้า
     // ------------------------
     function showPage(pageId) {
-      const pages = ['pageLogin', 'pageRegister', 'page10', 'page11'];
+      const pages = ['pageLogin', 'pageRegister', 'page10', 'page11', 'page12', 'page13', 'page14'];
       pages.forEach(id => {
-        document.getElementById(id).style.display = (id === pageId) ? 'flex' : 'none';
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.style.display = (id === pageId) ? 'flex' : 'none';
       });
-      
       if (pageId === 'page11') {
         document.getElementById(pageId).style.display = 'block';
       }
+      // ข้อความกำลังใจสุ่ม (แสดง 1 ครั้งแบบ pop)
+      const lines = [
+        "สู้ ๆ นะ! ภารกิจนี้คุณทำได้แน่",
+        "ขอบคุณที่ดูแลใจตัวเอง 😊",
+        "อีกนิดเดียวก็สำเร็จแล้ว!",
+        "วันนี้ก็เก่งมากแล้วนะ"
+      ];
+      showMascotSpeech(lines[Math.floor(Math.random()*lines.length)]);
     }
 
     // ------------------------
@@ -504,16 +658,121 @@
         Swal.fire('กรุณาตอบคำถามให้ครบทุกข้อ', '', 'warning');
         return;
       }
-      Swal.fire({
-        icon: 'success',
-        title: 'ทำแบบประเมินเสร็จสิ้น',
-        text: 'ขอบคุณที่ทำแบบประเมิน',
-        confirmButtonText: 'ปิด'
-      });
-      // สามารถนำ answers ไปใช้งานต่อได้
-      showPage('page10');
+
+      // คำนวณคะแนนเฉลี่ย (1-7)
+      const maxScore = 7;
+      const avg = answers.reduce((a, b) => a + b, 0) / answers.length;
+      const percent = Math.round((avg / maxScore) * 100);
+
+      // แสดงผลหน้า 12
+      document.getElementById('sunflowerBar').style.width = percent + '%';
+      document.getElementById('sunflowerPercent').innerText = `คะแนนความรุนแรงของคุณอยู่ที่ ${percent}%`;
+
+      showPage('page12');
     });
 
+    // ปุ่ม "ถัดไป" หน้า 12
+    document.getElementById('toNextFrom12').addEventListener('click', () => {
+      showPage('page13');
+    });
+
+    // ปุ่มไปยังภารกิจ (เตรียมสำหรับหน้า 14)
+    document.getElementById('toMissionBtn').addEventListener('click', () => {
+      showPage('page14');
+    });
+
+    // ------------------------
+    // ระบบปีศาจและภารกิจ (หน้า 14)
+    // ------------------------
+    const monsterImg = document.getElementById('monsterImg');
+    const hpText = document.getElementById('hpText');
+    const missionList = document.getElementById('missionList');
+    const missionComplete = document.getElementById('missionComplete');
+
+    // อัปเดตพลังชีวิตปีศาจ
+    function updateMonsterHP(hp) {
+      hpText.innerText = `พลังชีวิตปีศาจ: ${hp}%`;
+      monsterImg.style.transform = `scale(${1 + hp / 100})`;
+    }
+
+    // ทำภารกิจให้สำเร็จ
+    function completeMission(index) {
+      const missionItems = document.querySelectorAll('.mission-item');
+      if (missionItems[index]) {
+        missionItems[index].querySelector('.do-btn').innerText = '✓ สำเร็จ';
+        missionItems[index].querySelector('.do-btn').classList.remove('btn-outline-success');
+        missionItems[index].querySelector('.do-btn').classList.add('btn-success');
+        missionItems[index].classList.add('completed');
+      }
+    }
+
+    // ตัวอย่างการทำงาน
+    updateMonsterHP(100);
+    completeMission(0);
+    completeMission(1);
+
+    // รวมและแก้ไขระบบข้อความให้กำลังใจ (ไม่ซ้ำซ้อน, วน 20 ข้อ, ทุก 10 วิ, ไม่ต้องเริ่มใหม่เมื่อเปลี่ยนหน้า)
+    const mascotLines = [
+      "วันนี้ก็เป็นวันที่ดีอีกวันนะ",
+      "ขอบคุณที่ดูแลใจตัวเอง 😊",
+      "ทุกก้าวเล็ก ๆ คือความสำเร็จ",
+      "เหนื่อยได้ แต่อย่าท้อ",
+      "คุณมีคุณค่าในแบบของตัวเอง",
+      "พักบ้างก็ได้นะ ไม่ต้องรีบ",
+      "ขอให้วันนี้ใจดีต่อตัวเอง",
+      "ความพยายามของคุณสำคัญเสมอ",
+      "ยิ้มให้ตัวเองในกระจกหน่อยนะ",
+      "ทุกปัญหามีทางออกเสมอ",
+      "ขอบคุณที่ไม่ยอมแพ้",
+      "คุณเก่งมากแล้วที่มาถึงตรงนี้",
+      "ให้เวลากับตัวเองบ้างนะ",
+      "ทุกความรู้สึกของคุณมีความหมาย",
+      "อย่าลืมหายใจลึก ๆ แล้วผ่อนคลาย",
+      "ขอให้วันนี้เป็นวันที่สดใส",
+      "คุณไม่ได้อยู่คนเดียว",
+      "ขอให้ใจคุณเบาสบายขึ้นทุกวัน",
+      "ขอบคุณที่กล้าดูแลตัวเอง",
+      "เชื่อมั่นในตัวเองนะ"
+    ];
+
+    let mascotIndex = 0;
+    function cycleMascotSpeech() {
+      const el = document.getElementById('mascotSpeech');
+      if (!el) return;
+      el.innerText = mascotLines[mascotIndex];
+      el.style.display = 'block';
+      el.style.opacity = '1';
+      el.classList.remove('mascot-fadeout');
+      el.style.animation = 'mascotPop 0.4s';
+      setTimeout(() => {
+        el.classList.add('mascot-fadeout');
+        setTimeout(() => {
+          el.style.display = 'none';
+          el.classList.remove('mascot-fadeout');
+        }, 1200); // เฟดหาย 1.2 วิ
+      }, 10000); // แสดง 10 วิ
+      mascotIndex = (mascotIndex + 1) % mascotLines.length;
+    }
+    setInterval(cycleMascotSpeech, 12000); // ทุก 12 วิ
+    window.addEventListener('DOMContentLoaded', cycleMascotSpeech);
+
+    // ฟังก์ชันโชว์ข้อความกำลังใจเด้งขวาล่าง 1 ครั้งเมื่อเปลี่ยนหน้า (ใช้สำหรับ showPage)
+    function showMascotSpeech(msg) {
+      const el = document.getElementById('mascotSpeech');
+      if (!el) return;
+      el.innerText = msg;
+      el.style.display = 'block';
+      el.style.opacity = '1';
+      el.classList.remove('mascot-fadeout');
+      el.style.animation = 'mascotPop 0.4s';
+      setTimeout(() => {
+        el.classList.add('mascot-fadeout');
+        setTimeout(() => {
+          el.style.display = 'none';
+          el.classList.remove('mascot-fadeout');
+        }, 800);
+      }, 3000);
+    }
   </script>
 </body>
 </html>
