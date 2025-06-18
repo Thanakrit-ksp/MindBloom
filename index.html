@@ -737,6 +737,134 @@
     </form>
   </div>
 
+  <!-- Page 17: เปรียบเทียบผลการประเมินรอบแรกกับรอบที่สอง (horizontal bar) -->
+  <div id="page17" style="display:none; background:#e3ffe6; min-height:100vh; padding:3rem 1rem; text-align:center; font-family:'Maitree','Noto Sans Thai',sans-serif;">
+    <div style="max-width:700px; margin:0 auto;">
+      <h2 style="font-weight:700; font-size:2.2rem; margin-bottom:1.5rem; color:#333;">เปรียบเทียบผลการประเมิน</h2>
+      <div style="background:#feffff; padding:2rem; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+        <p style="font-size:1.1rem; font-weight:600; margin-bottom:1.5rem;">คะแนนการประเมินรอบแรกและรอบที่สอง</p>
+        <div style="display:flex; flex-direction:column; gap:2.5rem; align-items:center; margin-bottom:1.5rem;">
+          <div style="display:flex; align-items:center; width:90%; max-width:500px;">
+            <span style="width:80px; text-align:right; font-weight:600; margin-right:18px;">รอบแรก</span>
+            <div style="flex:1; background:#e3ffe6; border-radius:16px; height:38px; position:relative; overflow:hidden;">
+              <div id="barFirstH" style="height:100%; width:0%; background:linear-gradient(90deg, #36d846, #a8e063); border-radius:16px; transition:width 1s;"></div>
+              <span id="percentFirstH" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); font-weight:700; color:#222;"></span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; width:90%; max-width:500px;">
+            <span style="width:80px; text-align:right; font-weight:600; margin-right:18px;">รอบสอง</span>
+            <div style="flex:1; background:#e3ffe6; border-radius:16px; height:38px; position:relative; overflow:hidden;">
+              <div id="barSecondH" style="height:100%; width:0%; background:linear-gradient(90deg, #24eed3, #36d846); border-radius:16px; transition:width 1s;"></div>
+              <span id="percentSecondH" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); font-weight:700; color:#222;"></span>
+            </div>
+          </div>
+        </div>
+        <div id="compareSummary" style="font-size:1.15rem; font-weight:600; color:#2c662d;"></div>
+        <div id="trendText" style="font-size:1.1rem; margin-top:2.2rem; color:#333; font-weight:500;"></div>
+        <div style="margin-top:2.5rem; text-align:center;">
+          <button id="btnFinish17" class="btn btn-success px-5 py-2 rounded-pill" style="font-size:1.1rem;">เสร็จสิ้น</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 18: ข้อความให้กำลังใจหลังจบแบบประเมิน -->
+  <div id="page18" style="display:none; min-height:100vh; background:#e3ffe6; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; max-width:480px; min-height:60vh; margin:auto; margin-top:5vh;">
+      <div style="background:#fff; border-radius:22px; box-shadow:0 4px 18px #0001; padding:2.5rem 1.5rem; text-align:center; font-size:1.18rem; color:#2c662d; font-family:'Maitree','Noto Sans Thai',sans-serif; margin-bottom:2.5rem;">
+        ทางเราหวังว่าแบบประเมินชุดนี้จะช่วยให้ท่านได้รับรู้ข้อมูลของโรคที่ท่านกำลังเผชิญอยู่<br>
+        ทางเราขอให้กำลังใจท่านให้ผ่านเหตุการณ์ครั้งนี้ไปได้<br><br>
+        <span style="font-size:1.3rem; font-weight:600;">" มาผ่านเรื่องนี้ไปด้วยกันนะครับ "</span>
+      </div>
+      <img src="https://i.ibb.co/kVmg7718/LINE-ALBUM-250603-1-1-1-removebg-preview.png" alt="MindBloom Logo" style="width:140px; max-width:60vw;">
+      <div style="display:flex; flex-direction:column; gap:1rem; margin-top:2.5rem; width:100%; max-width:280px;">
+        <button id="btnSatisfaction18" class="btn btn-primary px-4 py-2 rounded-pill" style="font-size:1.1rem;">ทำแบบประเมินความพึงพอใจ</button>
+        <button id="btnHome18" class="btn btn-outline-secondary px-4 py-2 rounded-pill" style="font-size:1.1rem;">กลับไปยังหน้าแรก</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 19: แบบประเมินความพึงพอใจ -->
+  <div id="page19" style="display:none; min-height:100vh; background:#e3ffe6; position:relative;">
+    <!-- ลายน้ำโลโก้ -->
+    <div style="position:absolute; top:50%; left:50%; width:420px; height:420px; opacity:0.08; z-index:0; transform:translate(-50%,-50%); pointer-events:none; background:url('https://i.ibb.co/kVmg7718/LINE-ALBUM-250603-1-1-1-removebg-preview.png') no-repeat center center; background-size:contain;"></div>
+    <form id="satisfactionForm" style="max-width:520px; margin:0 auto; background:rgba(255,255,255,0.97); border-radius:22px; box-shadow:0 4px 18px #0001; padding:2.5rem 1.5rem; position:relative; z-index:1; margin-top:5vh;">
+      <h2 style="font-weight:700; font-size:1.5rem; color:#2c662d; text-align:center; margin-bottom:2.2rem;">แบบประเมินความพึงพอใจ</h2>
+      <div class="assessment-question mb-4">
+        <label class="form-label">1) ขั้นตอนการใช้ไม่ยุ่งยากซับซ้อน และมีความคล่องตัว</label>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="sat1" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="sat1" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="sat1" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="sat1" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">2) ความชัดเจนในการอธิบาย ชี้แจง และแนะนําขั้นตอน</label>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="sat2" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="sat2" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="sat2" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="sat2" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">3) ระบบ Interface มีความน่าดึงดูดให้ใช้งาน</label>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="sat3" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="sat3" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="sat3" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="sat3" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">4) ผู้ใช้มีเเนวโน้มทางสุขภาพจิตที่ดีขึ้น</label>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="sat4" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="sat4" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="sat4" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="sat4" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:2.5rem;">
+        <button type="submit" class="btn btn-success px-5 py-2 rounded-pill" style="font-size:1.1rem;">ส่งแบบประเมิน</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Page 20: ขอบคุณสำหรับความร่วมมือ -->
+  <div id="page20" style="display:none; min-height:100vh; background:#e3ffe6; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    <div style="width:100%; max-width:480px; margin:auto; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+      <img src="https://i.ibb.co/kVmg7718/LINE-ALBUM-250603-1-1-1-removebg-preview.png" alt="MindBloom Logo" style="width:120px; max-width:60vw; margin-bottom:2.2rem; margin-top:2.2rem;">
+      <div style="background:#fff; border-radius:22px; box-shadow:0 4px 18px #0001; padding:2.2rem 1.2rem; text-align:center; font-size:1.15rem; color:#2c662d; font-family:'Maitree','Noto Sans Thai',sans-serif; margin-bottom:2.2rem;">
+        ขอขอบคุณสำหรับความร่วมมือ<br>
+        <span style="font-size:1.1rem; color:#222; font-weight:600; display:block; margin-top:1.2rem;">เสร็จสิ้นการทำเเบบประเมินความพึงพอใจ</span>
+      </div>
+      <button id="btnTo21" class="btn btn-primary px-5 py-2 rounded-pill" style="font-size:1.1rem;">ถัดไป</button>
+    </div>
+  </div>
+
+  <!-- Page 21: ข้อมูลติดต่อที่ปรึกษา -->
+  <div id="page21" style="display:none; min-height:100vh; background:#e3ffe6; position:relative;">
+    <!-- ลายน้ำโลโก้ -->
+    <div style="position:absolute; top:50%; left:50%; width:420px; height:420px; opacity:0.08; z-index:0; transform:translate(-50%,-50%); pointer-events:none; background:url('https://i.ibb.co/kVmg7718/LINE-ALBUM-250603-1-1-1-removebg-preview.png') no-repeat center center; background-size:contain;"></div>
+    <div style="max-width:520px; margin:0 auto; background:rgba(255,255,255,0.97); border-radius:22px; box-shadow:0 4px 18px #0001; padding:2.8rem 1.5rem; position:relative; z-index:1; margin-top:7vh; text-align:center;">
+      <h2 style="font-size:2rem; font-weight:700; color:#2c662d; margin-bottom:2.2rem;">หากต้องการที่ปรึกษา</h2>
+      <div style="font-size:1.18rem; color:#222; line-height:2; font-weight:500;">
+        โทร <b>1323</b> (สายด่วนสุขภาพจิต)<br>
+        โทร <b>988</b> (Suicide&Crisis Lifeline)<br>
+        Line <b>@JVKKHelpLine</b> <br>
+        <span style="font-size:0.98rem; color:#555;">(Chatbot "KhuiKun" กรมสุขภาพจิต)</span><br>
+        Facebook <b>Psyjaibot</b><br>
+        <span style="font-size:0.98rem; color:#555;">(Chatbot สุขภาพจิต โรงพยาบาลศิริราช)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1rem; align-items:center; margin-top:2.5rem;">
+        <a href="tel:1323" class="btn btn-success px-5 py-2 rounded-pill" style="font-size:1.1rem;">โทร 1323</a>
+        <button id="btnHome21" class="btn btn-outline-secondary px-5 py-2 rounded-pill" style="font-size:1.1rem;">กลับหน้าแรก</button>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     // ------------------------
@@ -835,37 +963,43 @@
       showPage('page11');
     });
 
-    // ส่งคำตอบแบบประเมิน 5 ข้อ
-    document.getElementById('assessmentForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const answers = [];
-      let valid = true;
-      for (let i = 1; i <= 5; i++) {
-        const val = document.querySelector('input[name="q'+i+'"]:checked');
-        if (!val) {
-          valid = false;
-          break;
+    // ส่งคำตอบแบบประเมิน (รองรับทั้งรอบแรกและรอบสอง)
+    document.querySelectorAll('#page11 #assessmentForm, #page16 #assessmentForm').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const answers = [];
+        let valid = true;
+        for (let i = 1; i <= 9; i++) {
+          const val = this.querySelector('input[name="q'+i+'"]:checked');
+          if (!val) {
+            valid = false;
+            break;
+          }
+          answers.push(parseInt(val.value));
         }
-        answers.push(parseInt(val.value));
-      }
-      if (!valid) {
-        Swal.fire('กรุณาตอบคำถามให้ครบทุกข้อ', '', 'warning');
-        return;
-      }
+        if (!valid) {
+          Swal.fire('กรุณาตอบคำถามให้ครบทุกข้อ', '', 'warning');
+          return;
+        }
+        // คำนวณคะแนนเฉลี่ย (1-7)
+        const maxScore = 7;
+        const avg = answers.reduce((a, b) => a + b, 0) / answers.length;
+        const percent = Math.round((avg / maxScore) * 100);
 
-      // คำนวณคะแนนเฉลี่ย (1-7)
-      const maxScore = 7;
-      const avg = answers.reduce((a, b) => a + b, 0) / answers.length;
-      const percent = Math.round((avg / maxScore) * 100);
-
-
-      // แสดงผลหน้า 12
-      document.getElementById('sunflowerBar').style.width = percent + '%';
-      document.getElementById('sunflowerPercent').innerText = `คะแนนความรุนแรงของคุณอยู่ที่ ${percent}%`;
-
-      showPage('page12');
-
-
+        // รอบแรก (page11)
+        if (this.closest('#page11')) {
+          percentFirst = percent;
+          document.getElementById('sunflowerBar').style.width = percent + '%';
+          document.getElementById('sunflowerPercent').innerText = `คะแนนความรุนแรงของคุณอยู่ที่ ${percent}%`;
+          showPage('page12');
+        }
+        // รอบสอง (page16)
+        else if (this.closest('#page16')) {
+          percentSecond = percent;
+          showComparePage();
+          showPage('page17');
+        }
+      });
     });
 
     // ปุ่ม "ถัดไป" หน้า 12
@@ -1033,5 +1167,78 @@
         }, 800);
       }, 3000);
     }
+
+    // ปุ่มเริ่มทำแบบประเมินรอบที่ 2 (หน้า 15 ไปหน้า 16)
+    document.getElementById('startAssessmentBtn15').addEventListener('click', () => {
+      showPage('page16');
+    });
+
+    // ตัวแปรเก็บคะแนน
+    let percentFirst = null;
+    let percentSecond = null;
+
+    // หลังส่งแบบประเมินรอบแรก (หน้า 11)
+    // (ใน event submit ของ assessmentForm สำหรับรอบแรก)
+    // ให้บันทึก percentFirst = ...
+    // หลังส่งแบบประเมินรอบสอง (หน้า 16)
+    // ให้บันทึก percentSecond = ...
+    // และ showPage('page17')
+
+    // ฟังก์ชันแสดงผลเปรียบเทียบในหน้า 17
+    function showComparePage() {
+      // Horizontal bar
+      document.getElementById('barFirstH').style.width = (percentFirst || 0) + '%';
+      document.getElementById('barSecondH').style.width = (percentSecond || 0) + '%';
+      document.getElementById('percentFirstH').innerText = percentFirst !== null ? percentFirst + '%' : '-';
+      document.getElementById('percentSecondH').innerText = percentSecond !== null ? percentSecond + '%' : '-';
+      // ข้อความสรุป
+      let summary = '';
+      let trend = '';
+      if (percentFirst !== null && percentSecond !== null) {
+        if (percentSecond > percentFirst) {
+          summary = 'คะแนนรอบที่สองสูงขึ้น (+ ' + (percentSecond - percentFirst) + '%)';
+          trend = 'จากผลประเมิน แสดงว่าคุณมีแนวโน้มในการพัฒนาสุขภาพจิตที่ดีขึ้น';
+        } else if (percentSecond < percentFirst) {
+          summary = 'คะแนนรอบที่สองลดลง (− ' + (percentFirst - percentSecond) + '%)';
+          trend = 'จากผลประเมิน แสดงว่าคุณมีแนวโน้มในการพัฒนาสุขภาพจิตที่ลดลง';
+        } else {
+          summary = 'คะแนนเท่าเดิมทั้งสองรอบ';
+          trend = 'จากผลประเมิน แสดงว่าคุณมีแนวโน้มในการพัฒนาสุขภาพจิตที่คงที่';
+        }
+      }
+      document.getElementById('compareSummary').innerText = summary;
+      document.getElementById('trendText').innerText = trend;
+    }
+
+    // เพิ่ม event listener สำหรับปุ่มเสร็จสิ้นในหน้า 17
+    document.getElementById('btnFinish17').addEventListener('click', function() {
+      showPage('page18'); // ไปหน้า 18 เมื่อกดปุ่มเสร็จสิ้น
+    });
+
+    // เพิ่ม event listener สำหรับปุ่มในหน้า 18
+    document.getElementById('btnSatisfaction18').addEventListener('click', function() {
+      // ไปหน้าแบบประเมินความพึงพอใจ (สามารถเพิ่มหน้าใหม่ได้)
+      showPage('pageLogin'); // หรือ showPage('pageSatisfaction') หากมีหน้าใหม่
+    });
+    
+    document.getElementById('btnHome18').addEventListener('click', function() {
+      showPage('pageLogin'); // กลับไปหน้าแรก (หน้า login)
+    });
+
+    // เพิ่ม event listener สำหรับแบบประเมินความพึงพอใจ (page19)
+    document.getElementById('satisfactionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // สามารถเก็บข้อมูลหรือส่งออกได้ที่นี่
+      showPage('page20');
+    });
+    // ปุ่มถัดไปในหน้า 20
+    document.getElementById('btnTo21').addEventListener('click', function() {
+      showPage('page21');
+    });
+
+    // เพิ่ม event listener สำหรับปุ่มกลับหน้าแรกในหน้า 21
+    document.getElementById('btnHome21').addEventListener('click', function() {
+      showPage('pageLogin');
+    });
   </script>
 </body>
