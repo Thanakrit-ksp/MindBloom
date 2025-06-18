@@ -264,6 +264,7 @@
       color: #2c662d;
       animation: mascotPop 0.4s;
     }
+
   </style>
 </head>
 <body>
@@ -350,85 +351,138 @@
   </div>
 
   <!-- Page 11: Assessment Questions (รวม 1-5 ในหน้าเดียว) -->
-  <div id="page11" style="display:none; min-height:100vh; background-color:#fffbe6; padding:4rem 1rem; position:relative; user-select:none;">
-    <div class="assessment-watermark"></div>
-    <form id="assessmentForm" style="max-width:600px; margin:0 auto; background:rgba(255,255,255,0.95); border-radius:18px; box-shadow:0 4px 16px #0001; padding:2rem;">
-      <div class="assessment-question mb-4">
-        <label class="form-label">1. คุณรู้สึกเครียดหรือวิตกกังวลบ่อยแค่ไหน?</label>
-        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
-        <div class="radio-group-custom mb-2">
-          <label><input type="radio" name="q1" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
-          <label><input type="radio" name="q1" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
-          <label><input type="radio" name="q1" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
-          <label><input type="radio" name="q1" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
-          <label><input type="radio" name="q1" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
-          <label><input type="radio" name="q1" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
-          <label><input type="radio" name="q1" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
-        </div>
+  <div id="page11" style="display:none; min-height:100vh; background-color:#e3ffe6; padding:4rem 1rem; position:relative; user-select:none;">
+  <div class="assessment-watermark"></div>
+  <form id="assessmentForm" style="max-width:600px; margin:0 auto; background:rgba(255,255,255,0.95); border-radius:18px; box-shadow:0 4px 16px #0001; padding:2rem;">
+    <div class="assessment-question mb-4">
+      <label class="form-label">1. เบื่อ ไม่สนใจทำอะไร</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q1" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q1" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q1" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q1" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q1" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q1" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q1" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
       </div>
-      <div class="assessment-question mb-4">
-        <label class="form-label">2. คุณรู้สึกหมดแรง ไม่มีแรงทำอะไรหรือไม่?</label>
-        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
-        <div class="radio-group-custom mb-2">
-          <label><input type="radio" name="q2" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
-          <label><input type="radio" name="q2" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
-          <label><input type="radio" name="q2" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
-          <label><input type="radio" name="q2" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
-          <label><input type="radio" name="q2" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
-          <label><input type="radio" name="q2" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
-          <label><input type="radio" name="q2" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
-        </div>
+    </div>
+    <div class="assessment-question mb-4">
+      <label class="form-label">2. ไม่สบายใจ ซึมเศร้า ท้อแท้</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q2" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q2" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q2" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q2" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q2" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q2" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q2" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
       </div>
-      <div class="assessment-question mb-4">
-        <label class="form-label">3. คุณนอนหลับได้ดีหรือไม่ในช่วงที่ผ่านมา?</label>
-        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
-        <div class="radio-group-custom mb-2">
-          <label><input type="radio" name="q3" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
-          <label><input type="radio" name="q3" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
-          <label><input type="radio" name="q3" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
-          <label><input type="radio" name="q3" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
-          <label><input type="radio" name="q3" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
-          <label><input type="radio" name="q3" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
-          <label><input type="radio" name="q3" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
-        </div>
+    </div>
+    <div class="assessment-question mb-4">
+      <label class="form-label">3. หลับยากหรือหลับๆ ตื่นๆ หรือหลับมากไป</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q3" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q3" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q3" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q3" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q3" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q3" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q3" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
       </div>
-      <div class="assessment-question mb-4">
-        <label class="form-label">4. คุณรู้สึกไม่มีความสุขกับชีวิตบ่อยแค่ไหน?</label>
-        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
-        <div class="radio-group-custom mb-2">
-          <label><input type="radio" name="q4" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
-          <label><input type="radio" name="q4" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
-          <label><input type="radio" name="q4" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
-          <label><input type="radio" name="q4" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
-          <label><input type="radio" name="q4" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
-          <label><input type="radio" name="q4" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
-          <label><input type="radio" name="q4" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
-        </div>
+    </div>
+    <div class="assessment-question mb-4">
+      <label class="form-label">4. เหนื่อยงานหรือไม่ค่ยมีแรง</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q4" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q4" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q4" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q4" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q4" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q4" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q4" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
       </div>
-      <div class="assessment-question mb-4">
-        <label class="form-label">5. คุณรู้สึกหงุดหงิดหรือโมโหง่ายหรือไม่?</label>
-        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
-        <div class="radio-group-custom mb-2">
-          <label><input type="radio" name="q5" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
-          <label><input type="radio" name="q5" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
-          <label><input type="radio" name="q5" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
-          <label><input type="radio" name="q5" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
-          <label><input type="radio" name="q5" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
-          <label><input type="radio" name="q5" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
-          <label><input type="radio" name="q5" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
-        </div>
+    </div>
+    <div class="assessment-question mb-4">
+      <label class="form-label">5. เบื่ออาหาร หรือกินมากเกินไป</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q5" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q5" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q5" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q5" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q5" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q5" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q5" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
       </div>
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-lg">ส่งคำตอบ</button>
+    </div>
+    <div class="assessment-question mb-4">
+      <label class="form-label">6. รู้สึกไม่ดีกับตัวเอง คิดว่าตัวเองล้มเหลว หรือทำให้ตัวเองผิดหวัง</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q6" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q6" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q6" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q6" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q6" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q6" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q6" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
       </div>
-    </form>
-  </div>
+    </div>
+    <div class="assessment-question mb-4">
+      <label class="form-label">7. สมาธิไม่ดีเวลาทำอะไร เช่น ดูโทรทัศน์ฟังวิทยุหรือทำงานที่ต้องใช้ความตั้งใจ</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q7" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q7" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q7" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q7" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q7" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q7" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q7" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+      </div>
+    </div>
+    <div class="assessment-question mb-4">
+      <label class="form-label">8. พูดช้า ทำอะไรช้าลง จนคนอื่นสังเกตุเห็นได้หรือกระสับกระส่ายไม่สามารถอยู่นิ่งได้เหมือนที่เคยเป็น</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q8" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q8" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q8" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q8" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q8" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q8" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q8" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+      </div>
+    </div>
+    <div class="assessment-question mb-4">
+      <label class="form-label">9. คิดทำร้ายตนเองหรือคิดว่าถ้าตายไปคงจะดี</label>
+      <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+      <div class="radio-group-custom mb-2">
+        <label><input type="radio" name="q9" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+        <label><input type="radio" name="q9" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+        <label><input type="radio" name="q9" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+        <label><input type="radio" name="q9" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+        <label><input type="radio" name="q9" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+        <label><input type="radio" name="q9" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+        <label><input type="radio" name="q9" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-lg">ส่งคำตอบ</button>
+    </div>
+  </form>
+</div>
 
   <!-- Page 12: ผลการประเมิน (บ้านทานตะวัน) -->
   <div id="page12" style="display:none; background:#e3ffe6; min-height:100vh; padding:3rem 1rem; text-align:center; font-family:'Maitree','Noto Sans Thai',sans-serif;">
     <div style="max-width:700px; margin:0 auto;">
       <h2 style="font-weight:700; font-size:2.2rem; margin-bottom:1.5rem; color:#333;">ผลการประเมิน</h2>
-      <p style="font-size:1.3rem; margin-bottom:2rem;">คุณจัดอยู่ในบ้าน <strong>“ทานตะวัน”</strong></p>
+      <p style="font-size:1.3rem; margin-bottom:2rem;">คุณจัดอยู่ในบ้าน <strong>"ทานตะวัน"</strong></p>
+
       
       <div style="background:#feffff; padding:2rem; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
         <p style="font-size:1.1rem; font-weight:600; margin-bottom:0.5rem;">ระดับความรุนแรงของปัญหาด้านอารมณ์ (ทานตะวัน)</p>
@@ -445,7 +499,7 @@
   <!-- Page 13: รายละเอียดกลุ่มทานตะวัน -->
   <div id="page13" style="display:none; background:#fffdf3; min-height:100vh; padding:3rem 1rem; font-family:'Maitree','Noto Sans Thai',sans-serif;">
     <div style="max-width:750px; margin:0 auto; text-align:center;">
-      <h2 style="font-weight:700; font-size:2.2rem; margin-bottom:1rem; color:#333;">คุณอยู่ในบ้าน “ทานตะวัน”</h2>
+      <h2 style="font-weight:700; font-size:2.2rem; margin-bottom:1rem; color:#333;">คุณอยู่ในบ้าน "ทานตะวัน"</h2>
       <p style="font-size:1.2rem; text-align:left; line-height:1.7; background:#fff8db; padding:2rem; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
         คุณอาจพบเจอกับอาการ:<br>
         • รู้สึกซึมเศร้า หดหู่ หรือสิ้นหวัง<br>
@@ -461,13 +515,14 @@
       <img src="https://i.ibb.co/F4LT2sqL/Chat-GPT-Image-Jun-13-2025-12-13-29-PM-2.png" alt="บ้านทานตะวัน" style="margin-top:2rem; max-width:100%; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
       
       <button id="toMissionBtn" class="btn btn-success mt-5 px-5 py-2 rounded-pill" style="font-size:1.2rem;">ไปยังภารกิจ</button>
+
     </div>
   </div>
 
   <!-- Page 14: ภารกิจพิชิตปีศาจ -->
-  <div id="page14" style="display:none; background:#f0fff0; min-height:100vh; padding:2rem 1rem; font-family:'Maitree','Noto Sans Thai',sans-serif;">
-    <div style="max-width:820px; margin:0 auto; text-align:center;">
-      <h2 style="font-weight:700; font-size:2rem; color:#2c662d; margin-bottom:2rem;">ภารกิจพิชิตปีศาจ</h2>
+  <div id="page14" style="display:block; min-height:100vh; background:#fffbe6; padding:3rem 1rem;">
+    <div style="max-width:600px; margin:0 auto; text-align:center;">
+      <h2 style="font-weight:700; font-size:2rem; margin-bottom:1.5rem;">พิชิตปีศาจแห่งอารมณ์</h2>
       <!-- กระดานรวมปีศาจ+แถบพลังชีวิต+ภารกิจ -->
       <div class="mission-board" style="background:#fff; border-radius:24px; box-shadow:0 6px 24px #0001; padding:2.5rem 1.5rem 2rem 1.5rem; max-width:540px; margin:0 auto;">
         <!-- แถบพลังชีวิต -->
@@ -516,16 +571,170 @@
           <h4 class="text-success">🎉 คุณพิชิตปีศาจได้แล้ว!</h4>
         </div>
       </div>
+
+      <!-- ปุ่มไปหน้า 15 (แสดงเฉพาะในหน้า 14) -->
+      <div id="btnToPage15" style="display:none; text-align:center; margin-top:2.5rem;">
+        <button id="goToPage15" class="btn btn-primary px-5 py-2 rounded-pill" style="font-size:1.1rem;">
+          ไปยังหน้าสรุปภารกิจ
+        </button>
+      </div>
     </div>
     <!-- เสียงเอฟเฟกต์ -->
     <audio id="fxHit" src="https://cdn.pixabay.com/audio/2022/03/15/audio_6c69fb5402.mp3"></audio>
+
     <audio id="fxWin" src="https://cdn.pixabay.com/audio/2022/03/15/audio_98fce7e3a0.mp3"></audio>
     <audio id="fxMonsterCry" src="https://cdn.pixabay.com/audio/2022/08/09/audio_62ddbc3f66.mp3"></audio>
   </div>
 
+
   <!-- Mascot เพื่อนให้กำลังใจ (เอารูปออก เหลือแต่กล่องข้อความ) -->
   <div id="mascotSpeech" style="display:none; position:fixed; bottom:24px; right:24px; z-index:999; background:#fff; padding:14px 22px; border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.18); font-size:1.08rem; font-weight:500; color:#2c662d; animation: mascotPop 0.4s;">
     <!-- ข้อความกำลังใจจะมาแสดงตรงนี้ -->
+  </div>
+
+  <!-- หน้า 15: หน้าสรุปภารกิจ -->
+  <div id="page15" style="display:none; min-height:100vh; background:#e3ffe6; padding:3rem 1rem;">
+    <div style="max-width:500px; margin:0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:70vh;">
+      <img src="https://i.ibb.co/gMSn5z7H/LINE-ALBUM-250603-1-1-1-removebg-preview.png"
+           alt="MindBloom Logo"
+           style="width:120px; max-width:60vw; margin-bottom:2rem;">
+      <h1 style="font-size:2.5rem; letter-spacing:0.7rem; font-weight:700; color:#2c662d; text-align:center; margin:0;">
+        M I N D <br>B L O O M
+      </h1>
+      <div style="margin-top:2.5rem; margin-bottom:1.5rem;">
+        <span style="font-size:1.25rem; color:#2c662d; font-weight:600;">ยินดีด้วยท่านผู้กล้าที่ทำภารกิจสำเร็จ ⚔</span>
+      </div>
+      <button id="startAssessmentBtn15" class="btn btn-primary px-5 py-2 rounded-pill" style="font-size:1.1rem; margin-top:2.5rem;">
+        เริ่มทำแบบประเมิน
+      </button>
+    </div>
+  </div>
+
+  <!-- หน้า 16: ใช้ชุดคำถามเดียวกับหน้า 11 (PHQ-9) -->
+  <div id="page16" style="display:none; min-height:100vh; background-color:#e3ffe6; padding:4rem 1rem; position:relative; user-select:none;">
+    <div class="assessment-watermark"></div>
+    <form id="assessmentForm" style="max-width:600px; margin:0 auto; background:rgba(255,255,255,0.95); border-radius:18px; box-shadow:0 4px 16px #0001; padding:2rem;">
+      <div class="assessment-question mb-4">
+        <label class="form-label">1. เบื่อ ไม่สนใจทำอะไร</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q1" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q1" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q1" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q1" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q1" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q1" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q1" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">2. ไม่สบายใจ ซึมเศร้า ท้อแท้</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q2" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q2" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q2" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q2" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q2" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q2" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q2" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">3. หลับยากหรือหลับๆ ตื่นๆ หรือหลับมากไป</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q3" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q3" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q3" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q3" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q3" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q3" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q3" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">4. เหนื่อยงานหรือไม่ค่ยมีแรง</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q4" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q4" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q4" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q4" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q4" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q4" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q4" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">5. เบื่ออาหาร หรือกินมากเกินไป</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q5" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q5" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q5" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q5" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q5" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q5" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q5" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">6. รู้สึกไม่ดีกับตัวเอง คิดว่าตัวเองล้มเหลว หรือทำให้ตัวเองผิดหวัง</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q6" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q6" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q6" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q6" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q6" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q6" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q6" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">7. สมาธิไม่ดีเวลาทำอะไร เช่น ดูโทรทัศน์ฟังวิทยุหรือทำงานที่ต้องใช้ความตั้งใจ</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q7" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q7" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q7" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q7" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q7" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q7" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q7" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">8. พูดช้า ทำอะไรช้าลง จนคนอื่นสังเกตุเห็นได้หรือกระสับกระส่ายไม่สามารถอยู่นิ่งได้เหมือนที่เคยเป็น</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q8" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q8" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q8" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q8" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q8" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q8" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q8" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="assessment-question mb-4">
+        <label class="form-label">9. คิดทำร้ายตนเองหรือคิดว่าถ้าตายไปคงจะดี</label>
+        <div class="scale-labels"><span>น้อยที่สุด</span><span>มากที่สุด</span></div>
+        <div class="radio-group-custom mb-2">
+          <label><input type="radio" name="q9" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
+          <label><input type="radio" name="q9" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
+          <label><input type="radio" name="q9" value="3" /><span class="custom-radio-scale"></span><span>3</span></label>
+          <label><input type="radio" name="q9" value="4" /><span class="custom-radio-scale"></span><span>4</span></label>
+          <label><input type="radio" name="q9" value="5" /><span class="custom-radio-scale"></span><span>5</span></label>
+          <label><input type="radio" name="q9" value="6" /><span class="custom-radio-scale"></span><span>6</span></label>
+          <label><input type="radio" name="q9" value="7" /><span class="custom-radio-scale"></span><span>7</span></label>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg">ส่งคำตอบ</button>
+      </div>
+    </form>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -649,11 +858,14 @@
       const avg = answers.reduce((a, b) => a + b, 0) / answers.length;
       const percent = Math.round((avg / maxScore) * 100);
 
+
       // แสดงผลหน้า 12
       document.getElementById('sunflowerBar').style.width = percent + '%';
       document.getElementById('sunflowerPercent').innerText = `คะแนนความรุนแรงของคุณอยู่ที่ ${percent}%`;
 
       showPage('page12');
+
+
     });
 
     // ปุ่ม "ถัดไป" หน้า 12
@@ -736,11 +948,14 @@
               monsterImg.classList.remove('monster-hit');
               updateMonsterImg(monsterHP);
               updateMonsterHP(monsterHP);
+
             }, 400);
 
             if (monsterHP === 0) {
               missionComplete.style.display = 'block';
-              if (btnToPage15) btnToPage15.style.display = 'block';
+              // หลังทำภารกิจครบ (monsterHP === 0)
+              document.getElementById('btnToPage15').style.display = 'block';
+
               fxWin.play();
             }
           }
@@ -820,4 +1035,3 @@
     }
   </script>
 </body>
-</html>
