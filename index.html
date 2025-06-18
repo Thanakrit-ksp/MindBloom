@@ -241,12 +241,26 @@
       100% { transform: rotate(0deg);}
     }
     .monster-hit {
-      animation: hit-blink 0.4s;
+      animation: shake 0.4s, hit-blink 0.4s;
+      filter: drop-shadow(0 0 32px #ff1a1a) drop-shadow(0 0 16px #ff0000);
     }
     @keyframes hit-blink {
-      0% { filter: brightness(1);}
-      50% { filter: brightness(2);}
-      100% { filter: brightness(1);}
+      0% { filter: brightness(1) drop-shadow(0 0 32px #ff1a1a) drop-shadow(0 0 16px #ff0000);}
+      50% { filter: brightness(2) drop-shadow(0 0 48px #ff1a1a) drop-shadow(0 0 32px #ff0000);}
+      100% { filter: brightness(1) drop-shadow(0 0 32px #ff1a1a) drop-shadow(0 0 16px #ff0000);}
+    }
+    @keyframes shake {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      10% { transform: translate(-5px, 0) rotate(-2deg); }
+      20% { transform: translate(5px, 0) rotate(2deg); }
+      30% { transform: translate(-5px, 0) rotate(-2deg); }
+      40% { transform: translate(5px, 0) rotate(2deg); }
+      50% { transform: translate(-3px, 0) rotate(-1deg); }
+      60% { transform: translate(3px, 0) rotate(1deg); }
+      70% { transform: translate(-2px, 0) rotate(-1deg); }
+      80% { transform: translate(2px, 0) rotate(1deg); }
+      90% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
     }
     /* Mascot เพื่อนให้กำลังใจ (เอารูปออก เหลือแต่กล่องข้อความ) */
     #mascotSpeech {
@@ -268,6 +282,9 @@
   </style>
 </head>
 <body>
+  <div id="globalLogo" style="position:fixed; top:18px; left:18px; z-index:1000;">
+    <img src="https://i.ibb.co/bMnR3VNv/LINE-ALBUM-250603-1-1.jpg" alt="MindBloom Logo" style="width:62px; height:62px; border-radius:50%; border:3px solid #fff; box-shadow:0 2px 10px #0002; background:#fff; object-fit:cover;">
+  </div>
 
   <!-- Login Page -->
   <div id="pageLogin" class="login-card">
@@ -341,10 +358,12 @@
       z-index: 0;
       pointer-events: none;
     "></div>
-    <div style="position: relative; z-index: 1;">
-      <h1 style="letter-spacing: 10px; font-weight: 700; color: #222;">M I N D</h1>
-      <h1 style="letter-spacing: 10px; font-weight: 700; color: #222;">B L O O M</h1>
-      <button id="startAssessmentBtn" class="btn btn-success btn-lg px-4 py-2 rounded-pill shadow mt-5">
+    <div style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh;">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h1 style="letter-spacing: 10px; font-weight: 700; color: #222; margin-bottom:0;">M I N D</h1>
+        <h1 style="letter-spacing: 10px; font-weight: 700; color: #222; margin-bottom:0;">B L O O M</h1>
+      </div>
+      <button id="startAssessmentBtn" class="btn btn-success btn-lg px-4 py-2 rounded-pill shadow" style="margin-top:3rem;">
         เริ่มทำแบบประเมิน
       </button>
     </div>
@@ -478,26 +497,24 @@
 </div>
 
   <!-- Page 12: ผลการประเมิน (บ้านทานตะวัน) -->
-  <div id="page12" style="display:none; background:#e3ffe6; min-height:100vh; padding:3rem 1rem; text-align:center; font-family:'Maitree','Noto Sans Thai',sans-serif;">
-    <div style="max-width:700px; margin:0 auto;">
+  <div id="page12" style="display:none; background:#e3ffe6; min-height:100vh; padding:3rem 1rem; text-align:center; font-family:'Maitree','Noto Sans Thai',sans-serif; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <div style="max-width:700px; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:70vh; margin:auto;">
       <h2 style="font-weight:700; font-size:2.2rem; margin-bottom:1.5rem; color:#333;">ผลการประเมิน</h2>
       <p style="font-size:1.3rem; margin-bottom:2rem;">คุณจัดอยู่ในบ้าน <strong>"ทานตะวัน"</strong></p>
-
-      
-      <div style="background:#feffff; padding:2rem; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <div style="background:#feffff; padding:2rem; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.08); display:flex; flex-direction:column; align-items:center; justify-content:center;">
         <p style="font-size:1.1rem; font-weight:600; margin-bottom:0.5rem;">ระดับความรุนแรงของปัญหาด้านอารมณ์ (ทานตะวัน)</p>
-        <div style="width:100%; background:#e3ffe6; height:30px; border-radius:50px; overflow:hidden; margin:0 auto 1rem;">
+        <div style="width:100%; background:#e3ffe6; height:30px; border-radius:50px; overflow:hidden; margin:0 auto 1rem; max-width:400px;">
           <div id="sunflowerBar" style="height:100%; width:0%; background:linear-gradient(to right, orange, red); transition:width 1s;"></div>
         </div>
         <p id="sunflowerPercent" style="font-size:1rem; color:#444;"></p>
       </div>
-
-      <button id="toNextFrom12" class="btn btn-success mt-5 px-5 py-2 rounded-pill" style="font-size:1.2rem;">ถัดไป</button>
+      <button id="toNextFrom12" class="btn btn-success px-5 py-2 rounded-pill" style="font-size:1.2rem; margin-top:3rem;">ถัดไป</button>
     </div>
   </div>
 
   <!-- Page 13: รายละเอียดกลุ่มทานตะวัน -->
-  <div id="page13" style="display:none; background:#fffdf3; min-height:100vh; padding:3rem 1rem; font-family:'Maitree','Noto Sans Thai',sans-serif;">
+  <div id="page13" style="display:none; background:#e3ffe6; min-height:100vh; padding:3rem 1rem; font-family:'Maitree','Noto Sans Thai',sans-serif; position:relative;">
+    <div style="position:absolute; top:50%; left:50%; width:420px; height:420px; opacity:0.08; z-index:0; transform:translate(-50%,-50%); pointer-events:none; background:url('https://i.ibb.co/kVmg7718/LINE-ALBUM-250603-1-1-1-removebg-preview.png') no-repeat center center; background-size:contain;"></div>
     <div style="max-width:750px; margin:0 auto; text-align:center;">
       <h2 style="font-weight:700; font-size:2.2rem; margin-bottom:1rem; color:#333;">คุณอยู่ในบ้าน "ทานตะวัน"</h2>
       <p style="font-size:1.2rem; text-align:left; line-height:1.7; background:#fff8db; padding:2rem; border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
@@ -520,7 +537,8 @@
   </div>
 
   <!-- Page 14: ภารกิจพิชิตปีศาจ -->
-  <div id="page14" style="display:block; min-height:100vh; background:#fffbe6; padding:3rem 1rem;">
+  <div id="page14" style="display:block; min-height:100vh; background:#e3ffe6; padding:3rem 1rem; position:relative;">
+    <div style="position:absolute; top:50%; left:50%; width:420px; height:420px; opacity:0.08; z-index:0; transform:translate(-50%,-50%); pointer-events:none; background:url('https://i.ibb.co/kVmg7718/LINE-ALBUM-250603-1-1-1-removebg-preview.png') no-repeat center center; background-size:contain;"></div>
     <div style="max-width:600px; margin:0 auto; text-align:center;">
       <h2 style="font-weight:700; font-size:2rem; margin-bottom:1.5rem;">พิชิตปีศาจแห่งอารมณ์</h2>
       <!-- กระดานรวมปีศาจ+แถบพลังชีวิต+ภารกิจ -->
@@ -538,33 +556,23 @@
         <ul id="missionList" style="list-style:none; padding:0; margin:0 auto; max-width:420px;">
           <li class="mission-item">
             <span>ฝึกหายใจแบบ 4-7-8 ก่อนนอน</span>
-            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
-              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
-            </button>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ" style="font-size:1.6rem; padding:0.2em 0.7em; line-height:1;">🗡️</button>
           </li>
           <li class="mission-item">
             <span>เขียนไดอารี่อารมณ์ประจำวัน</span>
-            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
-              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
-            </button>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ" style="font-size:1.6rem; padding:0.2em 0.7em; line-height:1;">🗡️</button>
           </li>
           <li class="mission-item">
             <span>ออกไปรับแสงแดดยามเช้า 15 นาที</span>
-            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
-              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
-            </button>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ" style="font-size:1.6rem; padding:0.2em 0.7em; line-height:1;">🗡️</button>
           </li>
           <li class="mission-item">
             <span>วาดภาพหรือระบายสีเพื่อสื่ออารมณ์</span>
-            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
-              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
-            </button>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ" style="font-size:1.6rem; padding:0.2em 0.7em; line-height:1;">🗡️</button>
           </li>
           <li class="mission-item">
             <span>พูดคุยกับเพื่อนหรือครอบครัว</span>
-            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ">
-              <img src="https://cdn-icons-png.flaticon.com/512/3131/3131447.png" alt="ดาบ" style="width:22px; height:22px; vertical-align:middle;">
-            </button>
+            <button class="do-btn btn btn-outline-success btn-sm ms-2" title="ทำภารกิจ" style="font-size:1.6rem; padding:0.2em 0.7em; line-height:1;">🗡️</button>
           </li>
         </ul>
         <div id="missionComplete" class="mt-4" style="display:none;">
@@ -572,7 +580,7 @@
         </div>
       </div>
 
-      <!-- ปุ่มไปหน้า 15 (แสดงเฉพาะในหน้า 14) -->
+      <!-- ปุ่มไปหน้าสรุปภารกิจ (แสดงตลอดแต่กดได้เมื่อครบ 5/5) -->
       <div id="btnToPage15" style="display:none; text-align:center; margin-top:2.5rem;">
         <button id="goToPage15" class="btn btn-primary px-5 py-2 rounded-pill" style="font-size:1.1rem;">
           ไปยังหน้าสรุปภารกิจ
@@ -792,6 +800,10 @@
       <h2 style="font-weight:700; font-size:1.5rem; color:#2c662d; text-align:center; margin-bottom:2.2rem;">แบบประเมินความพึงพอใจ</h2>
       <div class="assessment-question mb-4">
         <label class="form-label">1) ขั้นตอนการใช้ไม่ยุ่งยากซับซ้อน และมีความคล่องตัว</label>
+        <div class="scale-labels" style="display:flex; justify-content:space-between; max-width:320px; margin:0 auto 6px auto; font-size:0.95rem; color:#555; font-weight:600;">
+          <span>น้อยที่สุด</span>
+          <span>มากที่สุด</span>
+        </div>
         <div class="radio-group-custom mb-2">
           <label><input type="radio" name="sat1" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
           <label><input type="radio" name="sat1" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
@@ -801,6 +813,10 @@
       </div>
       <div class="assessment-question mb-4">
         <label class="form-label">2) ความชัดเจนในการอธิบาย ชี้แจง และแนะนําขั้นตอน</label>
+        <div class="scale-labels" style="display:flex; justify-content:space-between; max-width:320px; margin:0 auto 6px auto; font-size:0.95rem; color:#555; font-weight:600;">
+          <span>น้อยที่สุด</span>
+          <span>มากที่สุด</span>
+        </div>
         <div class="radio-group-custom mb-2">
           <label><input type="radio" name="sat2" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
           <label><input type="radio" name="sat2" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
@@ -810,6 +826,10 @@
       </div>
       <div class="assessment-question mb-4">
         <label class="form-label">3) ระบบ Interface มีความน่าดึงดูดให้ใช้งาน</label>
+        <div class="scale-labels" style="display:flex; justify-content:space-between; max-width:320px; margin:0 auto 6px auto; font-size:0.95rem; color:#555; font-weight:600;">
+          <span>น้อยที่สุด</span>
+          <span>มากที่สุด</span>
+        </div>
         <div class="radio-group-custom mb-2">
           <label><input type="radio" name="sat3" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
           <label><input type="radio" name="sat3" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
@@ -819,6 +839,10 @@
       </div>
       <div class="assessment-question mb-4">
         <label class="form-label">4) ผู้ใช้มีเเนวโน้มทางสุขภาพจิตที่ดีขึ้น</label>
+        <div class="scale-labels" style="display:flex; justify-content:space-between; max-width:320px; margin:0 auto 6px auto; font-size:0.95rem; color:#555; font-weight:600;">
+          <span>น้อยที่สุด</span>
+          <span>มากที่สุด</span>
+        </div>
         <div class="radio-group-custom mb-2">
           <label><input type="radio" name="sat4" value="1" required /><span class="custom-radio-scale"></span><span>1</span></label>
           <label><input type="radio" name="sat4" value="2" /><span class="custom-radio-scale"></span><span>2</span></label>
@@ -849,6 +873,7 @@
     <!-- ลายน้ำโลโก้ -->
     <div style="position:absolute; top:50%; left:50%; width:420px; height:420px; opacity:0.08; z-index:0; transform:translate(-50%,-50%); pointer-events:none; background:url('https://i.ibb.co/kVmg7718/LINE-ALBUM-250603-1-1-1-removebg-preview.png') no-repeat center center; background-size:contain;"></div>
     <div style="max-width:520px; margin:0 auto; background:rgba(255,255,255,0.97); border-radius:22px; box-shadow:0 4px 18px #0001; padding:2.8rem 1.5rem; position:relative; z-index:1; margin-top:7vh; text-align:center;">
+      <div style="font-size:3rem; margin-bottom:1.2rem;">🚑</div>
       <h2 style="font-size:2rem; font-weight:700; color:#2c662d; margin-bottom:2.2rem;">หากต้องการที่ปรึกษา</h2>
       <div style="font-size:1.18rem; color:#222; line-height:2; font-weight:500;">
         โทร <b>1323</b> (สายด่วนสุขภาพจิต)<br>
@@ -1068,7 +1093,7 @@
         }).then(result => {
           if (result.isConfirmed || result.isDismissed) {
             btn.disabled = true;
-            btn.innerHTML = '⚔ สำเร็จ';
+            btn.innerHTML = '💥';
             btn.classList.add('rotate-sword');
 
             monsterHP -= 20;
@@ -1217,8 +1242,8 @@
 
     // เพิ่ม event listener สำหรับปุ่มในหน้า 18
     document.getElementById('btnSatisfaction18').addEventListener('click', function() {
-      // ไปหน้าแบบประเมินความพึงพอใจ (สามารถเพิ่มหน้าใหม่ได้)
-      showPage('pageLogin'); // หรือ showPage('pageSatisfaction') หากมีหน้าใหม่
+      // ไปหน้าแบบประเมินความพึงพอใจ (page 19)
+      showPage('page19');
     });
     
     document.getElementById('btnHome18').addEventListener('click', function() {
